@@ -41,8 +41,21 @@ public class lista {
     }//-----------------------------------Gets e Setters
 
     public void inserirPrimeiro(Pessoa p) {
+        No novoNo = new No(p);
+        if (this.eVazia()) {
+            this.ult = novoNo;
+        }
+        novoNo.setProx(this.prim);
+        this.prim = novoNo;
+        this.qtdNo++;
         
-    }
+    }//-------------------------------------------------INSERIR PRIMEIRO
+
+    public boolean eVazia()
+    {
+        return (this.prim == null);
+
+    }//---------------------------------------------------ÉVazia?
 
     
 }
