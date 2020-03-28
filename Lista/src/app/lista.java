@@ -57,5 +57,48 @@ public class lista {
 
     }//---------------------------------------------------ÉVazia?
 
+    public void inserirUltimo(Pessoa p)
+    {
+        No novoNO = new No(p);
+        if (this.eVazia()) {
+            this.prim = novoNO;
+        }else{
+            this.ult.setProx(novoNO);
+        }
+        this.ult = novoNO;
+        this.qtdNo++;
+    }//----------------------------------------------------INSERIR ULTIMO
+
+
+    public boolean removerNo(String nome)
+    {
+        No atual = this.prim;
+        No ant = null;
+        if(eVazia())
+        {
+            return false;
+        }else{
+            while (atual != null && (!atual.getP().getNome().equals(nome))) {
+                ant = atual;
+                atual = atual.getProx();
+            }
+            if (atual == this.prim) {
+                if (prim == ult) {
+                    this.ult = null;
+                }
+                this.prim = this.prim.getProx();
+            }else{
+                if (atual == this.ult) {
+                    this.ult = ant;
+                }
+                ant.setProx(atual.getProx());
+
+            }
+            this.qtdNo--;
+            return true;
+        }
+
+    }//-----------------------------------------------------REMOVER NO
+
     
 }
