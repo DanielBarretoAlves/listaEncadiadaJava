@@ -1,5 +1,7 @@
 package app;
 
+import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
+
 /**
  * lista
  */
@@ -99,6 +101,34 @@ public class lista {
         }
 
     }//-----------------------------------------------------REMOVER NO
+
+
+    public String pesquisarNo(String nome)
+    {
+        String msg ="";
+        No atual = this.prim;
+        while ((atual != null) && (!atual.getP().getNome().equals(nome))) {
+            atual = atual.getProx();
+        }
+        return msg = "Nome: " + atual.getP().getNome() + "\n"+
+                    "Sexo: " + atual.getP().getSexo() + "\n"+
+                    "Idade: " + atual.getP().getIdade();
+    }//-----------------------------------------------------------Pesquisar NO
+
+    public String imprmirLista()
+    {
+        String msg ="";
+        if (eVazia()) {
+            msg = "A lista está vazia";
+        }else{
+            No atual = this.prim;
+            while (atual != null) {
+                msg += atual.getP().getNome() + " -> ";
+                atual = atual.getProx();
+            }
+        }
+        return msg;
+    }//--------------------------------------------------------------imprimir Lista
 
     
 }
