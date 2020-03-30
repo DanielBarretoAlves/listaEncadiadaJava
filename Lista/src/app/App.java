@@ -22,9 +22,9 @@ public class App {
         return msg.charAt(0);
     }// -----------------------------------------------------------MENU
 
-    public static void main(String[] args) throws Exception {
-        Scanner scan = new Scanner(System.in);
-        lista list = new lista();
+    public static void main(final String[] args) throws Exception {
+        final Scanner scan = new Scanner(System.in);
+        final lista list = new lista();
         Pessoa p;
         
         char opcao;
@@ -59,7 +59,7 @@ public class App {
                     System.out.println("A Lista é Vazia.");
                 } else {
                     System.out.println("Localizando Pessoa .. \nDigite o Nome ");
-                    String nome = scan.next();
+                    final String nome = scan.next();
                     if (list.pesquisarNo(nome) == null) {
                         System.out.println("A Pessoa procurada não está na lista!");
                     }else{
@@ -70,11 +70,12 @@ public class App {
                 }
                     break;
                 case '4':
+                System.out.println("Entrou");
                 if (list.eVazia()) {
                     System.out.println("A Lista está Vazia");
                 } else {
                     System.out.println("Excluir uma Pessoa\nDigite o nome");
-                    String nome = scan.next();
+                    final String nome = scan.next();
                     if (list.removerNo(nome)) {
                         System.out.println(nome + " Removido Com Sucesso!");
                     } else {
